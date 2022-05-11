@@ -6,13 +6,15 @@ import { MyChartComponent } from './components/my-chart/my-chart.component';
 import { ExempleComponent } from './components/exemple/exemple.component';
 import { PlanbComponent } from './components/planb/planb.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PizzagraphComponent } from './components/pizzagraph/pizzagraph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyChartComponent,
     ExempleComponent,
-    PlanbComponent
+    PlanbComponent,
+    PizzagraphComponent
   ],
   imports: [
     BrowserModule,

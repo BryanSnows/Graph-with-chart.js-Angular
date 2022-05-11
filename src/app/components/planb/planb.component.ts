@@ -243,8 +243,7 @@ const browserData3 = [
             beginAtZero: true
           }
         }
-      },
-      plugins: [ChartDataLabels]
+      }
     }
   )
 
