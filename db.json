@@ -1,0 +1,51 @@
+{
+    "browserData": [
+        {
+            "browser": "Físico",
+            "color": "rgba(247, 199, 74)",
+            "users": 15,
+            "marketshare": 3,
+            "versionData": [
+              { "version": "Dor/Desconforto", "users": 4.5 },
+              { "version": "Energia/fadiga", "users": 4 },
+              { "version": "Sono e Repouso", "users": 3.5 },
+              { "version": "Mobilidade", "users": 5 },
+              { "version": "Vida Cotidiana", "users": 4 }
+            ]
+        },
+        {
+            "browser": "Social",
+            "color": "rgba(247, 199, 74)",
+            "users": 25,
+            "marketshare": 4,
+            "versionData": [
+                { "version": "Relações Pessoais", "users": 4.5 },
+                { "version": "Suporte Social", "users": 4 },
+                { "version": "Atividade Sexual", "users": 4 }
+            ]
+        },
+        {
+            "browser": "Psicológico",
+            "color": "rgba(247, 199, 74)",
+            "users": 30,
+            "marketshare": 3.5,
+            "versionData": [
+                { "version": "Sentimentos Positivos", "users": 4 },
+                { "version": "Auto Estima", "users": 4.5 },
+                { "version": "Sentimentos Negativos", "users": 3.5 }
+            ]
+        },
+        {
+            "browser": "Ambiental",
+            "color": "rgba(247, 199, 74)",
+            "users": 30,
+            "marketshare": 4.5,
+            "versionData": [
+                { "version": "Ambiente no Lar", "users": 4 },
+                { "version": "Recursos Financeiros", "users": 4.5 },
+                { "version": "Ambiente Fisico", "users": 3.5 }
+            ]
+        }
+    ]
+
+}

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { APP_ID, Component, OnInit } from '@angular/core';
 import { _DeepPartialObject } from 'chart.js/types/utils';
-import { Chart, ChartOptions } from 'node_modules/chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Chart } from 'node_modules/chart.js';
+import { GraphService } from 'src/app/service/graph.service';
+import { ApiTeste } from '../../ApiTeste';
 
 @Component({
   selector: 'app-planb',
@@ -10,27 +11,31 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PlanbComponent implements OnInit {
 
-  constructor() { }
+    browserData: ApiTeste[] = [];
+  
+  constructor(private service: GraphService ) {
+      this.getAnimals()
+   }
+
 
   ngOnInit() {
-    const browserData = [
+    
+    const browserData  = [
       {
           browser: 'Físico',
           color: 'rgba(247, 199, 74)',
-          users: 15,
           marketshare: 3,
           versionData: [
-              { version: 'Dor/Desconforto', users: 4.5 },
-              { version: 'Energia/fadiga', users: 4 },
-              { version: 'Sono e Repouso', users: 3.5 },
-              { version: 'Mobilidade', users: 5 },
-              { version: 'Vida Cotidiana', users: 4 },
+            { version: 'Dor/Desconforto', users: 4.5 },
+            { version: 'Energia/fadiga', users: 4 },
+            { version: 'Sono e Repouso', users: 3.5 },
+            { version: 'Mobilidade', users: 5 },
+            { version: 'Vida Cotidiana', users: 4 },
           ],
       },
       {
           browser: 'Social',
           color: 'rgba(247, 199, 74)',
-          users: 25,
           marketshare: 4,
           versionData: [
               { version: 'Relações Pessoais', users: 4.5 },
@@ -41,7 +46,6 @@ export class PlanbComponent implements OnInit {
       {
           browser: 'Psicológico',
           color: 'rgba(247, 199, 74)',
-          users: 30,
           marketshare: 3.5,
           versionData: [
               { version: 'Sentimentos Positivos', users: 4 },
@@ -52,7 +56,6 @@ export class PlanbComponent implements OnInit {
       {
           browser: 'Ambiental',
           color: 'rgba(247, 199, 74)',
-          users: 30,
           marketshare: 4.5,
           versionData: [
               { version: 'Ambiente no Lar', users: 4 },
@@ -65,7 +68,6 @@ export class PlanbComponent implements OnInit {
     {
         browser: 'Físico',
         color: 'rgba(120, 245, 164)',
-        users: 15,
         marketshare: 1,
         versionData: [
             { version: 'Dor/Desconforto', users: 2.5 },
@@ -78,7 +80,6 @@ export class PlanbComponent implements OnInit {
     {
         browser: 'Social',
         color: 'rgba(120, 245, 164)',
-        users: 25,
         marketshare: 1,
         versionData: [
             { version: 'Relações Pessoais', users: 4.5 },
@@ -89,7 +90,6 @@ export class PlanbComponent implements OnInit {
     {
         browser: 'Psicológico',
         color: 'rgba(120, 245, 164)',
-        users: 30,
         marketshare: 1,
         versionData: [
             { version: 'Sentimentos Positivos', users: 4 },
@@ -100,7 +100,6 @@ export class PlanbComponent implements OnInit {
     {
         browser: 'Ambiental',
         color: 'rgba(120, 245, 164)',
-        users: 30,
         marketshare: 1,
         versionData: [
             { version: 'Ambiente no Lar', users: 4 },
@@ -114,7 +113,6 @@ const browserData3 = [
   {
       browser: 'Físico',
       color: 'rgba(119, 249, 251)',
-      users: 15,
       marketshare: 2,
       versionData: [
           { version: 'Dor/Desconforto', users: 4.5 },
@@ -127,7 +125,6 @@ const browserData3 = [
   {
       browser: 'Social',
       color: 'rgba(119, 249, 251)',
-      users: 25,
       marketshare: 2,
       versionData: [
           { version: 'Relações Pessoais', users: 4.5 },
@@ -138,7 +135,6 @@ const browserData3 = [
   {
       browser: 'Psicológico',
       color: 'rgba(119, 249, 251)',
-      users: 30,
       marketshare: 2,
       versionData: [
           { version: 'Sentimentos Positivos', users: 4 },
@@ -149,7 +145,6 @@ const browserData3 = [
   {
       browser: 'Ambiental',
       color: 'rgba(119, 249, 251)',
-      users: 30,
       marketshare: 2,
       versionData: [
           { version: 'Ambiente no Lar', users: 4 },
@@ -312,5 +307,14 @@ const browserData3 = [
 
   ctx.onclick = clickHandler;
   }
+
+  getAnimals(): void {
+      this.service.getAll().subscribe((browserData) => (this.browserData = browserData));
+      this.service.getAll().subscribe((browserData)  => console.log(browserData));
+     
+  }
+
+
+
 
 }
