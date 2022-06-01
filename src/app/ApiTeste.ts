@@ -1,5 +1,11 @@
 export interface ApiTeste {
-    version: string, 
-    users: number
-    marketshare:number
+    
+        browser: string;
+        color: string; 
+        marketshare: number;
+        versionData: { version: string; users: number; }[]; 
+   
+   
+   
+   
 }

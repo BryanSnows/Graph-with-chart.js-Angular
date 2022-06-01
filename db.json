@@ -1,10 +1,11 @@
 {
-    "browserData": [
+
+    "heroesArray": [
         {
             "browser": "Físico",
             "color": "rgba(247, 199, 74)",
             "users": 15,
-            "marketshare": 3,
+            "marketshare": 10,
             "versionData": [
               { "version": "Dor/Desconforto", "users": 4.5 },
               { "version": "Energia/fadiga", "users": 4 },
@@ -47,5 +48,6 @@
             ]
         }
     ]
+   
 
 }

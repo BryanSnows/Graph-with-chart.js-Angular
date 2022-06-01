@@ -1,8 +1,14 @@
-export interface Hero {
-    id: string,
-    firstName: string,
-    lastName: string,
-    superHeroName: string,
-    description: string,
-    profilePicture: string
+export interface VersionData{
+     version: string,
+     users: number,
+
 }
+
+export interface Hero {
+     browser: string;
+     color: string; 
+     marketshare: number;
+     //versionData: { version: string; users: number; }[]; 
+     versionData: VersionData;
+}
+

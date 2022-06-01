@@ -6,13 +6,12 @@ import { ApiTeste } from '../ApiTeste';
   providedIn: 'root'
 })
 export class GraphService {
-  private apiUrl = 'http://localhost:3000/browserData'
+  private apiUrl = 'http://localhost:3000/heroesArray'
   constructor(private http: HttpClient) { }
 
 
-  getAll(): Observable<ApiTeste[]> {
-     return this.http.get<ApiTeste[]>(this.apiUrl)
-    
+  get(){
+    return this.http.get<any>(this.apiUrl);
   }
 
   

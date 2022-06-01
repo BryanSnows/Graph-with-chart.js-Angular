@@ -3,6 +3,7 @@ import { _DeepPartialObject } from 'chart.js/types/utils';
 import { Chart } from 'node_modules/chart.js';
 import { GraphService } from 'src/app/service/graph.service';
 import { ApiTeste } from '../../ApiTeste';
+import { Hero } from 'src/app/Test';
 
 @Component({
   selector: 'app-planb',
@@ -11,17 +12,34 @@ import { ApiTeste } from '../../ApiTeste';
 })
 export class PlanbComponent implements OnInit {
 
-    browserData: ApiTeste[] = [];
+    //browserData: ApiTeste[] = [];
   
-  constructor(private service: GraphService ) {
-      this.getAnimals()
+  constructor(private heroHttpService: GraphService ) {
+    
    }
 
-
+  heroesArray : Hero[] = [];
   ngOnInit() {
+
     
-    const browserData  = [
-      {
+    this.heroHttpService.get()
+    .subscribe(
+    //sucesso
+    heroes => {
+    this.heroesArray.push(...heroes);
+    },
+    //erro
+    error => {
+    console.log("Deu ruim: "+ error);
+    });
+
+   // console.log(this.heroesArray);
+
+    const dataBrowser = this.heroesArray
+
+  
+    const browserData  =  [
+      {  
           browser: 'Físico',
           color: 'rgba(247, 199, 74)',
           marketshare: 3,
@@ -64,6 +82,8 @@ export class PlanbComponent implements OnInit {
           ],
       }, 
   ];
+  console.log(dataBrowser)
+  console.log(browserData)
   const browserData2 = [
     {
         browser: 'Físico',
@@ -156,6 +176,7 @@ const browserData3 = [
 
  
   // setup 
+  //console.log(browserData[0].color, dataBrowser)
   const data = {
       //labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       datasets: [{
@@ -308,11 +329,11 @@ const browserData3 = [
   ctx.onclick = clickHandler;
   }
 
-  getAnimals(): void {
+ /* getAnimals(): void {
       this.service.getAll().subscribe((browserData) => (this.browserData = browserData));
       this.service.getAll().subscribe((browserData)  => console.log(browserData));
      
-  }
+  }*/
 
 
 
