@@ -4,6 +4,7 @@ import { Chart } from 'node_modules/chart.js';
 import { GraphService } from 'src/app/service/graph.service';
 import { ApiTeste } from '../../ApiTeste';
 import { Hero } from 'src/app/Test';
+import { newArray } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-planb',
@@ -18,7 +19,7 @@ export class PlanbComponent implements OnInit {
     
    }
 
-  heroesArray : Hero[] = [];
+  heroesArray : Array<Hero> = new Array;                
   ngOnInit() {
 
     
@@ -82,8 +83,8 @@ export class PlanbComponent implements OnInit {
           ],
       }, 
   ];
-  console.log(dataBrowser)
-  console.log(browserData)
+ // console.log(dataBrowser[0].color)
+ // console.log(browserData[0].color)
   const browserData2 = [
     {
         browser: 'Físico',
@@ -94,7 +95,7 @@ export class PlanbComponent implements OnInit {
             { version: 'Energia/fadiga', users: 2 },
             { version: 'Sono e Repouso', users: 1.5 },
             { version: 'Mobilidade', users: 2 },
-            { version: 'Vida Cotidiana', users: 1 },
+            { version: 'Vida Cotidiana', users: 1 },    
         ],
     },
     {
